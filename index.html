@@ -3,25 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>천문탑의 밤 — 지구와 달의 운동</title>
+<title>천문탑의 밤 — 교사 연수용</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;700&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#1E1511;
-  --bg-2:#2A1E18;
-  --panel:#33241C;
-  --panel-2:#3D2B21;
-  --line:#5A4132;
-  --line-soft:#4A3529;
-  --gold:#D6A53A;
-  --gold-dim:#A57D26;
-  --ember:#E0803A;
-  --cream:#F0E2C9;
-  --muted:#B2977A;
-  --night:#120E0C;
-  --gry:#C0392B; --sly:#2F8757; --rav:#5170C4; --huf:#E0A80D;
+  --bg:#080C1C;
+  --bg-2:#0E1430;
+  --panel:rgba(20,28,58,.78);
+  --panel-2:rgba(32,43,82,.78);
+  --line:#36446F;
+  --line-soft:#2A3558;
+  --gold:#F2CB6B;
+  --gold-dim:#D9AE4C;
+  --gold-lt:#F2CB6B;
+  --ember:#FF9A5B;
+  --cream:#F4EEDD;
+  --ink:#F4EEDD;
+  --muted:#A9B6DC;
+  --muted-d:#A9B6DC;
+  --night:#060A18;
+  --gry:#E0574A; --sly:#3FBE83; --rav:#7E9BFF; --huf:#F2C247;
   --r-sm:8px; --r-md:14px; --r-lg:20px;
 }
 *{box-sizing:border-box}
@@ -29,11 +32,12 @@ html,body{margin:0;padding:0}
 body{
   background:var(--bg);
   background-image:
-    radial-gradient(1200px 520px at 50% -120px, rgba(214,165,58,.13), transparent 70%),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.014) 0 2px, transparent 2px 7px),
-    radial-gradient(rgba(255,255,255,.045) 1px, transparent 1px);
-  background-size:auto, auto, 26px 26px;
-  color:var(--cream);
+    radial-gradient(900px 560px at 78% 6%, rgba(104,78,186,.32), transparent 64%),
+    radial-gradient(780px 500px at 14% 24%, rgba(34,92,170,.28), transparent 66%),
+    radial-gradient(1200px 640px at 50% 112%, rgba(242,203,107,.12), transparent 70%),
+    linear-gradient(180deg,#080C1C 0%,#0C1228 46%,#090E20 100%);
+  background-attachment:fixed;
+  color:var(--ink);
   font-family:"Gowun Batang", serif;
   font-size:17px; line-height:1.75;
   -webkit-font-smoothing:antialiased;
@@ -71,12 +75,12 @@ svg{display:block}
 }
 .btn:hover{filter:brightness(1.07)}
 .btn:active{transform:translateY(4px);box-shadow:0 2px 0 #7A5613, 0 6px 14px rgba(0,0,0,.4)}
-.btn[disabled]{background:#4A3B30;color:#8A7967;box-shadow:0 6px 0 #33281F;cursor:not-allowed;filter:none}
-.btn.sub{background:linear-gradient(180deg,#5C4334,#433024);color:var(--cream);box-shadow:0 6px 0 #2C201A,0 12px 22px rgba(0,0,0,.4)}
+.btn[disabled]{background:#242E4E;color:#68759E;box-shadow:0 6px 0 #18203A;cursor:not-allowed;filter:none}
+.btn.sub{background:linear-gradient(180deg,#3A4778,#26305A);color:var(--cream);box-shadow:0 6px 0 #1A2242,0 12px 22px rgba(0,0,0,.5)}
 .btn.danger{background:linear-gradient(180deg,#9E4432,#73301F);color:#FBE9DF;box-shadow:0 6px 0 #4E2014,0 12px 22px rgba(0,0,0,.4)}
 .btn-ghost{
   display:inline-block;width:auto;padding:9px 18px;border-radius:999px;
-  border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);
+  border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--muted);
   font-family:"Cinzel",serif;font-size:12px;letter-spacing:.12em;font-weight:700;
 }
 .btn-ghost:hover{border-color:var(--gold-dim);color:var(--gold)}
@@ -85,22 +89,27 @@ svg{display:block}
 .hero{margin:34px auto 0;max-width:520px}
 .hero svg{width:100%;height:auto}
 .title{font-size:40px;letter-spacing:.06em;color:var(--gold);margin:22px 0 8px;
-  text-shadow:0 0 26px rgba(214,165,58,.35)}
+  text-shadow:0 0 22px rgba(242,203,107,.65), 0 0 60px rgba(242,203,107,.30)}
 .subtitle{color:var(--muted);font-style:italic;margin:0 0 32px}
 .card{
   background:linear-gradient(180deg,var(--panel-2),var(--panel));
   border:1px solid var(--line);border-radius:var(--r-lg);padding:30px 28px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 18px 40px rgba(0,0,0,.45);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07), 0 18px 44px rgba(0,0,0,.55);
 }
 .field{margin-bottom:20px}
 .field:last-child{margin-bottom:0}
 .field label{display:block;font-family:"Cinzel",serif;font-size:11.5px;letter-spacing:.18em;color:var(--gold-dim);margin-bottom:9px}
-.field input, textarea{
+.field input{
   width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:var(--r-sm);
-  background:#241A14;font-family:inherit;font-size:18px;color:var(--cream);
+  background:rgba(8,13,32,.85);font-family:inherit;font-size:18px;color:var(--ink);
 }
-.field input::placeholder{color:#7A6552}
-.field input:focus, textarea:focus{border-color:var(--gold-dim);background:#2B1F18}
+textarea{
+  width:100%;padding:14px 15px;border:1px solid rgba(255,255,255,.26);border-radius:var(--r-sm);
+  background:rgba(8,13,32,.9);font-family:inherit;font-size:18px;color:var(--cream);
+}
+.field input::placeholder{color:#63719E}
+.field input:focus{border-color:var(--gold);background:rgba(16,24,54,.95);box-shadow:0 0 0 3px rgba(242,203,107,.16)}
+textarea:focus{border-color:var(--gold-lt);background:rgba(14,21,48,.95)}
 
 /* 분류 */
 .hatwrap{width:190px;margin:30px auto 4px;position:relative}
@@ -114,6 +123,79 @@ svg{display:block}
 .house-en{font-family:"Cinzel",serif;font-size:38px;letter-spacing:.08em;margin:4px 0}
 .house-ko{color:var(--muted);font-size:19px;margin-bottom:26px}
 
+
+/* 배경 별하늘 */
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.sky i{position:absolute;border-radius:50%;background:#FFFFFF;
+  animation:skyTw var(--t) ease-in-out infinite}
+@keyframes skyTw{0%,100%{opacity:var(--o1);transform:scale(.8)}
+  50%{opacity:var(--o2);transform:scale(1.3)}}
+.sky i.big{background:#FFF3D0;box-shadow:0 0 8px rgba(255,236,180,.9)}
+.skyfall{position:absolute;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,247,220,.95));
+  animation:skyFall var(--d) ease-in forwards}
+@keyframes skyFall{0%{transform:translate(0,0) rotate(22deg) scaleX(.2);opacity:0}
+  14%{opacity:1}100%{transform:translate(64vw,30vh) rotate(22deg) scaleX(1);opacity:0}}
+.wrap{position:relative;z-index:1}
+.candlerow{position:relative;z-index:1}
+
+/* 글자가 빛나도록 */
+.q-title{text-shadow:0 0 16px rgba(244,238,221,.28)}
+.hud-house{text-shadow:0 0 20px currentColor}
+.cel-title{text-shadow:0 0 24px rgba(242,203,107,.55)}
+.quest-head h2{text-shadow:0 0 20px rgba(242,203,107,.45)}
+.glass em{text-shadow:0 0 12px rgba(242,203,107,.55)}
+.cert-name{text-shadow:none}
+
+/* 제작 프롬프트 (교사용) */
+.footer{max-width:1000px;margin:0 auto;padding:26px 20px 60px;text-align:center;
+  border-top:1px solid var(--line-soft);position:relative;z-index:1}
+.footer p{color:var(--muted);font-size:14px;margin:0 0 12px;font-style:italic}
+.promptbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.promptbar .btn{width:auto;flex:0 0 auto;padding:14px 24px;font-size:14px}
+.promptbar .btn.done{background:linear-gradient(180deg,#4E9A6B,#2F6B47);color:#EAF7EF;box-shadow:0 6px 0 #1F4A30}
+pre.prompt{background:rgba(6,10,24,.92);border:1px solid var(--line);border-radius:16px;
+  padding:24px 22px;margin:0;overflow:auto;max-height:62vh;
+  font-family:"Gowun Batang",serif;font-size:15px;line-height:1.95;color:var(--cream);
+  white-space:pre-wrap;word-break:break-word}
+pre.prompt::-webkit-scrollbar{width:10px}
+pre.prompt::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
+.howto{margin-top:18px}
+.howto h3{color:var(--gold);font-size:18px;margin:0 0 10px}
+.howto ol{margin:0;padding-left:22px}
+.howto li{margin-bottom:9px;font-size:15.5px}
+.howto code{background:rgba(6,10,24,.9);border:1px solid var(--line-soft);border-radius:6px;padding:2px 7px;font-size:14px}
+@media (max-width:640px){ .promptbar .btn{width:100%} pre.prompt{font-size:14px;padding:18px 15px} }
+
+/* 완주 배너 */
+.banner{background:linear-gradient(180deg,rgba(242,203,107,.20),rgba(242,203,107,.06));
+  border:1px solid var(--gold-dim);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px;
+  display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.banner b{color:var(--gold);font-size:18px;text-shadow:0 0 20px rgba(242,203,107,.5)}
+.banner p{margin:4px 0 0;color:var(--muted);font-size:14.5px}
+
+/* 마법 가루 */
+.dust{position:fixed;inset:0;z-index:40;pointer-events:none;overflow:hidden}
+.dp{position:absolute;border-radius:50%;
+  background:radial-gradient(circle,#FFF6DC,#C9902B);
+  box-shadow:0 0 10px rgba(201,144,43,.85);
+  animation:dustFloat var(--d) linear forwards}
+@keyframes dustFloat{
+  0%{transform:translate(0,0) scale(.25);opacity:0}
+  10%{opacity:var(--o,.8)}
+  45%{transform:translate(var(--sx),-48vh) scale(1)}
+  75%{opacity:var(--o,.8)}
+  100%{transform:translate(calc(var(--sx) * -0.55),-108vh) scale(.35);opacity:0}}
+.halo{position:absolute;inset:-78px;border-radius:50%;opacity:0;pointer-events:none;
+  background:radial-gradient(circle, rgba(255,246,214,.98), rgba(214,165,58,.42) 40%, rgba(214,165,58,0) 68%)}
+.halo.burst{animation:haloBurst 1.4s ease-out forwards}
+@keyframes haloBurst{0%{opacity:0;transform:scale(.35)}22%{opacity:1}100%{opacity:0;transform:scale(1.55)}}
+.hatwrap .hat-body{transition:opacity .85s ease, filter .85s ease}
+.hatwrap.veiled .hat-body{opacity:.14;filter:blur(9px)}
+.hatwrap.shown .hat-body{animation:hatReveal 1.05s cubic-bezier(.2,1.45,.4,1) both;
+  filter:drop-shadow(0 0 16px rgba(214,165,58,.85))}
+@keyframes hatReveal{0%{transform:scale(.66);opacity:.15}58%{transform:scale(1.09);opacity:1}100%{transform:none;opacity:1}}
+.sorting .aura{opacity:1}
 
 /* 분류 연출 */
 .hatwrap{width:210px}
@@ -154,14 +236,14 @@ svg{display:block}
 .rise{animation:riseIn .55s .14s both}
 .rise2{animation:riseIn .55s .3s both}
 @keyframes riseIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.house-en{text-shadow:0 0 26px currentColor}
+.house-en{text-shadow:0 0 28px currentColor, 0 0 60px currentColor}
 
 /* 대시보드 HUD */
 .hud{
   display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;
   background:linear-gradient(180deg,var(--panel-2),var(--panel));
   border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 24px;margin:26px 0 24px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 14px 30px rgba(0,0,0,.4);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 16px 36px rgba(0,0,0,.5);
 }
 .hud-left{display:flex;gap:16px;align-items:center}
 .hud-crest{width:66px;flex:none}
@@ -171,7 +253,7 @@ svg{display:block}
 .glasses{display:flex;gap:13px;align-items:flex-end}
 .glass{width:42px;text-align:center}
 .tube{height:86px;border:1px solid var(--line);border-top:none;border-radius:0 0 18px 18px;
-  background:#1A120E;display:flex;align-items:flex-end;overflow:hidden;position:relative}
+  background:rgba(6,10,24,.9);display:flex;align-items:flex-end;overflow:hidden;position:relative}
 .tube i{display:block;width:100%;transition:height .7s cubic-bezier(.3,.8,.3,1);
   box-shadow:0 -6px 16px currentColor}
 .glass b{display:block;font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.1em;margin-top:6px;color:var(--muted)}
@@ -183,22 +265,22 @@ svg{display:block}
   text-align:left;width:100%;border-radius:var(--r-lg);padding:22px 22px 18px;
   background:linear-gradient(180deg,var(--panel-2),var(--panel));
   border:1px solid var(--line);display:flex;flex-direction:column;gap:9px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 10px 22px rgba(0,0,0,.35);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 12px 28px rgba(0,0,0,.45);
   transition:border-color .15s ease, transform .1s ease;
 }
 .quest:hover{border-color:var(--gold-dim);transform:translateY(-2px)}
-.quest.locked{background:#251B16;border-color:#3A2B22;color:#7B6957;cursor:not-allowed;
+.quest.locked{background:rgba(255,255,255,.028);border-color:#242E4E;color:#6E7CA8;cursor:not-allowed;
   box-shadow:none;transform:none}
-.quest.locked:hover{border-color:#3A2B22;transform:none}
+.quest.locked:hover{border-color:#242E4E;transform:none}
 .quest.done{border-color:var(--gold-dim)}
 .q-top{display:flex;gap:12px;align-items:center}
 .q-ico{width:44px;height:44px;flex:none}
 .quest.locked .q-ico{opacity:.35}
 .q-eyebrow{font-family:"Cinzel",serif;font-size:10.5px;letter-spacing:.18em;color:var(--gold-dim)}
-.quest.locked .q-eyebrow{color:#6E5C4B}
+.quest.locked .q-eyebrow{color:#5C6892}
 .q-title{font-size:20px}
 .q-desc{font-size:14.5px;color:var(--muted);font-style:italic;margin:0}
-.quest.locked .q-desc{color:#7B6957}
+.quest.locked .q-desc{color:#6E7CA8}
 .q-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;
   border-top:1px solid var(--line-soft);padding-top:12px;margin-top:auto}
 .pill{border:1px solid var(--line);border-radius:var(--r-sm);padding:3px 10px;
@@ -211,7 +293,7 @@ svg{display:block}
 .quest-head h2{font-size:27px;color:var(--gold)}
 .quest-head p{color:var(--muted);font-style:italic;margin:5px 0 0;font-size:15px}
 .obs{
-  background:var(--night);
+  background:var(--night);border:1px solid #2E3A5E;
   background-image:radial-gradient(rgba(255,255,255,.30) .9px, transparent 1.1px),
                    radial-gradient(rgba(255,255,255,.14) .8px, transparent 1px);
   background-size:44px 44px, 23px 23px;
@@ -220,50 +302,50 @@ svg{display:block}
   padding:26px 24px;margin-bottom:18px;
   box-shadow:inset 0 0 60px rgba(0,0,0,.75);
 }
-.obs h3{font-family:"Cinzel",serif;font-size:12px;letter-spacing:.2em;color:var(--gold-dim);
+.obs h3{font-family:"Cinzel",serif;font-size:12px;letter-spacing:.2em;color:var(--gold-lt);
   padding-bottom:11px;border-bottom:1px solid rgba(214,165,58,.22);margin-bottom:18px;
   display:flex;align-items:center;gap:9px}
 .obs h3 svg{width:17px;height:17px;flex:none}
 .ask{font-size:18px;margin:0 0 14px;line-height:1.7}
-.hint{font-size:14px;color:#9C8A72;font-style:italic;margin:-6px 0 14px}
+.hint{font-size:14px;color:var(--muted-d);font-style:italic;margin:-6px 0 14px}
 .pairs{display:flex;flex-direction:column;gap:11px}
 .pair{display:flex;align-items:center;gap:16px;justify-content:center;flex-wrap:wrap}
 .pair-key{width:150px;text-align:right;flex:none}
-.pair-key b{display:block;font-family:"Cinzel",serif;font-size:17px;font-style:italic;color:var(--gold)}
-.pair-key span{font-size:13px;color:var(--muted)}
-.pair input{width:230px;padding:12px 14px;border-radius:var(--r-sm);border:1px solid var(--line);
-  background:#1C1512;font-family:inherit;font-size:17px;color:var(--cream)}
+.pair-key b{display:block;font-family:"Cinzel",serif;font-size:17px;font-style:italic;color:var(--gold-lt)}
+.pair-key span{font-size:13px;color:var(--muted-d)}
+.pair input{width:230px;padding:12px 14px;border-radius:var(--r-sm);border:1px solid rgba(255,255,255,.26);
+  background:rgba(8,13,32,.9);font-family:inherit;font-size:17px;color:var(--cream)}
 .opts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .opts.stack{flex-direction:column;align-items:stretch}
 .opts.stack .opt{text-align:left}
-.opt{padding:12px 18px;border-radius:var(--r-sm);border:1px solid var(--line);
+.opt{padding:12px 18px;border-radius:var(--r-sm);border:1px solid rgba(255,255,255,.28);
   background:rgba(255,255,255,.04);color:var(--cream);font-size:16px}
-.opt:hover{background:rgba(214,165,58,.14);border-color:var(--gold-dim)}
-.opt.sel{background:linear-gradient(180deg,#D8A93F,#A87A1F);color:#2A1B08;border-color:var(--gold);font-weight:700}
+.opt:hover{background:rgba(220,169,60,.18);border-color:var(--gold-lt)}
+.opt.sel{background:linear-gradient(180deg,#F0C55E,#C8922A);color:#2A1B08;border-color:var(--gold-lt);font-weight:700}
 .check{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:var(--r-sm);
-  border:1px solid var(--line);background:rgba(255,255,255,.035);text-align:left;width:100%;
+  border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.035);text-align:left;width:100%;
   font-size:16px;line-height:1.6;margin-bottom:9px;color:var(--cream)}
-.check:hover{background:rgba(214,165,58,.12)}
-.check .box{width:21px;height:21px;flex:none;border:1px solid var(--muted);border-radius:5px;
+.check:hover{background:rgba(220,169,60,.16)}
+.check .box{width:21px;height:21px;flex:none;border:1px solid rgba(255,255,255,.72);border-radius:5px;
   margin-top:3px;display:flex;align-items:center;justify-content:center;font-size:13px;color:transparent}
-.check.sel{border-color:var(--gold)}
-.check.sel .box{background:var(--gold);border-color:var(--gold);color:#2A1B08}
+.check.sel{border-color:var(--gold-lt)}
+.check.sel .box{background:var(--gold-lt);border-color:var(--gold-lt);color:#221A16}
 .moons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .moonchip{width:104px;padding:13px 6px 11px;border-radius:var(--r-md);position:relative;
-  border:1px solid var(--line);background:rgba(255,255,255,.035);color:var(--cream);
+  border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.035);color:var(--cream);
   display:flex;flex-direction:column;align-items:center;gap:7px}
-.moonchip:hover{background:rgba(214,165,58,.12);border-color:var(--gold-dim)}
-.moonchip.sel{border-color:var(--gold);background:rgba(214,165,58,.16)}
+.moonchip:hover{background:rgba(220,169,60,.16);border-color:var(--gold-lt)}
+.moonchip.sel{border-color:var(--gold-lt);background:rgba(220,169,60,.20)}
 .moonchip svg{width:54px;height:54px}
 .moonchip span{font-size:14px}
 .moonchip .ord{position:absolute;top:-9px;right:-9px;width:26px;height:26px;border-radius:50%;
-  background:var(--gold);color:#2A1B08;font-family:"Cinzel",serif;font-weight:700;font-size:14px;
+  background:var(--gold-lt);color:#2A1B08;font-family:"Cinzel",serif;font-weight:700;font-size:14px;
   display:flex;align-items:center;justify-content:center}
 textarea{min-height:118px;resize:vertical;line-height:1.7}
 
 .fb{border-radius:var(--r-md);padding:17px 19px;margin-bottom:16px;font-size:16px;border:1px solid}
-.fb.ok{background:rgba(47,135,87,.15);border-color:#3F8F63;color:#CDECD9}
-.fb.no{background:rgba(192,57,43,.14);border-color:#9E5140;color:#F2D6CB}
+.fb.ok{background:rgba(63,190,131,.14);border-color:#3FBE83;color:#BEEED5}
+.fb.no{background:rgba(224,120,90,.14);border-color:#E0785A;color:#F8D6C6}
 .fb ul{margin:10px 0 0;padding-left:20px}
 .fb li{margin-bottom:5px}
 .row{display:flex;gap:12px;margin-top:6px}
@@ -278,30 +360,6 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .empty{color:var(--muted);font-style:italic;padding:24px 0}
 
 
-/* 제작 프롬프트 */
-.footer{max-width:1000px;margin:0 auto;padding:26px 20px 60px;text-align:center;
-  border-top:1px solid var(--line-soft)}
-.footer p{color:var(--muted);font-size:14px;margin:0 0 12px;font-style:italic}
-.promptbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
-.promptbar .btn{width:auto;flex:0 0 auto;padding:14px 24px;font-size:14px}
-.promptbar .btn.done{background:linear-gradient(180deg,#4E9A6B,#2F6B47);color:#EAF7EF;box-shadow:0 6px 0 #1F4A30}
-pre.prompt{background:#241A14;border:1px solid var(--line);border-radius:16px;
-  padding:24px 22px;margin:0;overflow:auto;max-height:62vh;
-  font-family:"Gowun Batang",serif;font-size:15px;line-height:1.95;color:var(--cream);
-  white-space:pre-wrap;word-break:break-word;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
-pre.prompt::-webkit-scrollbar{width:10px}
-pre.prompt::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
-.banner{background:linear-gradient(180deg,rgba(214,165,58,.18),rgba(214,165,58,.06));
-  border:1px solid var(--gold-dim);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px;
-  display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.banner b{color:var(--gold);font-size:18px}
-.banner p{margin:4px 0 0;color:var(--muted);font-size:14.5px}
-.howto{margin-top:18px}
-.howto h3{color:var(--gold);font-size:18px;margin:0 0 10px}
-.howto ol{margin:0;padding-left:22px}
-.howto li{margin-bottom:9px;font-size:15.5px}
-.howto code{background:#241A14;border:1px solid var(--line-soft);border-radius:6px;padding:2px 7px;font-size:14px}
-@media (max-width:640px){ .promptbar .btn{width:100%} pre.prompt{font-size:14px;padding:18px 15px} }
 
 
 /* ───────── 단계 축하 ───────── */
@@ -309,23 +367,23 @@ pre.prompt::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
   background:rgba(16,11,9,.84);opacity:0;pointer-events:none;transition:opacity .35s ease}
 .cel.on{opacity:1;pointer-events:auto}
 .cel-card{position:relative;max-width:470px;width:100%;text-align:center;padding:34px 28px;border-radius:22px;
-  background:linear-gradient(180deg,#422F24,#2B1F18);border:1px solid var(--gold-dim);
-  box-shadow:0 30px 70px rgba(0,0,0,.65)}
+  background:linear-gradient(180deg,rgba(34,46,88,.97),rgba(14,20,46,.97));border:1px solid var(--gold-dim);
+  box-shadow:0 30px 70px rgba(0,0,0,.75), 0 0 70px rgba(242,203,107,.20)}
 .cel.on .cel-card{animation:popIn .75s cubic-bezier(.2,1.5,.4,1) both}
 .cel-badge{width:92px;margin:0 auto 14px}
 .cel-eyebrow{font-family:"Cinzel",serif;color:var(--gold-dim);letter-spacing:.2em;font-size:12px;margin:0 0 8px}
 .cel-title{font-size:25px;color:var(--gold);margin:0 0 12px}
-.cel-msg{color:var(--cream);font-size:16.5px;margin:0 0 6px;line-height:1.8}
+.cel-msg{color:var(--ink);font-size:16.5px;margin:0 0 6px;line-height:1.8}
 .cel-sub{color:var(--muted);font-size:15px;margin:10px 0 0}
 .cel-pts{display:inline-block;margin:16px 0 20px;padding:9px 20px;border-radius:999px;
-  border:1px solid var(--gold-dim);background:rgba(214,165,58,.12);color:var(--gold);
+  border:1px solid var(--gold-dim);background:rgba(242,203,107,.14);color:var(--gold);
   font-family:"Cinzel",serif;font-size:15px;letter-spacing:.06em}
 .conf{position:absolute;top:-26px;width:9px;height:15px;border-radius:2px;opacity:.95;
   animation:confFall var(--d) linear forwards}
 @keyframes confFall{to{transform:translateY(112vh) rotate(760deg);opacity:.1}}
 
 /* ───────── 최종 연출 ───────── */
-.finale{position:fixed;inset:0;z-index:80;background:#090706;overflow:hidden;
+.finale{position:fixed;inset:0;z-index:80;background:#0A0E1E;overflow:hidden;
   opacity:0;pointer-events:none;transition:opacity .8s ease}
 .finale.on{opacity:1;pointer-events:auto}
 .fx{position:absolute;inset:0}
@@ -375,12 +433,45 @@ pre.prompt::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
 @keyframes shootFly{0%{transform:translate(0,0) rotate(24deg) scaleX(.2);opacity:0}
   12%{opacity:1}100%{transform:translate(78vw,34vh) rotate(24deg) scaleX(1);opacity:0}}
 .fx-caption{position:absolute;left:0;right:0;bottom:13%;text-align:center;padding:0 26px;
-  font-size:21px;line-height:1.7;color:var(--cream);opacity:0;transition:opacity .7s ease;
+  font-size:22px;line-height:1.7;color:#FFF7E4;opacity:0;transition:opacity .7s ease;
   text-shadow:0 2px 22px rgba(0,0,0,.95)}
 .fx-skip{position:absolute;top:18px;right:18px;z-index:5;padding:8px 16px;border-radius:999px;
   border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.35);color:#C6CBDC;
   font-family:"Cinzel",serif;font-size:12px;letter-spacing:.1em}
 .fx-skip:hover{border-color:var(--gold-dim);color:var(--gold)}
+
+/* 불꽃놀이 */
+.shell{position:absolute;width:5px;height:5px;border-radius:50%;background:currentColor;
+  box-shadow:0 0 12px currentColor;animation:shellUp var(--d) cubic-bezier(.2,.62,.5,1) forwards}
+@keyframes shellUp{0%{transform:translateY(0) scale(.5);opacity:.25}
+  22%{opacity:1}100%{transform:translateY(var(--rise)) scale(1);opacity:.95}}
+.fp{position:absolute;border-radius:50%;background:currentColor;
+  box-shadow:0 0 12px currentColor;animation:fpFly var(--d) cubic-bezier(.12,.62,.3,1) forwards}
+@keyframes fpFly{0%{transform:translate(0,0) scale(1);opacity:1}
+  60%{opacity:1}
+  100%{transform:translate(var(--tx), calc(var(--ty) + 76px)) scale(.3);opacity:0}}
+.fw-flash{position:absolute;width:130px;height:130px;margin:-65px 0 0 -65px;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.92), rgba(255,255,255,0) 62%);
+  animation:fwFlash .55s ease-out forwards}
+@keyframes fwFlash{0%{opacity:0;transform:scale(.18)}24%{opacity:1}100%{opacity:0;transform:scale(1.5)}}
+/* 바람 */
+.wind{position:absolute;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(255,244,214,0),rgba(255,244,214,.85),rgba(255,244,214,0));
+  animation:windBlow var(--d) linear forwards}
+@keyframes windBlow{0%{transform:translateX(0);opacity:0}16%{opacity:.9}100%{transform:translateX(-122vw);opacity:0}}
+.wfleck{position:absolute;width:7px;height:10px;border-radius:2px;
+  animation:fleckBlow var(--d) linear forwards}
+@keyframes fleckBlow{0%{transform:translate(0,0) rotate(0deg);opacity:0}
+  12%{opacity:1}
+  100%{transform:translate(-120vw, var(--dy)) rotate(-680deg);opacity:0}}
+/* 인증서가 바람에 실려 들어온다 */
+#fxCert.show .cert{animation:certWind 1.35s cubic-bezier(.16,.9,.28,1) both}
+@keyframes certWind{
+  0%{opacity:0;transform:translate(118vw, 28vh) rotate(36deg) scale(.5);filter:blur(9px)}
+  42%{opacity:1;filter:blur(3px)}
+  70%{transform:translate(-3vw,-1.5vh) rotate(-6deg) scale(1.05);filter:blur(0)}
+  86%{transform:translate(1vw,.6vh) rotate(2.5deg) scale(.985)}
+  100%{transform:none;opacity:1;filter:blur(0)}}
 
 /* ───────── 인증상장 ───────── */
 #fxCert{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
@@ -446,6 +537,7 @@ pre.prompt::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
 </head>
 <body>
 
+<div class="sky" id="sky"></div>
 <div class="candlerow" id="candles"></div>
 
 <div class="wrap">
@@ -578,7 +670,7 @@ pre.prompt::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
       <ol>
         <li>복사 버튼을 누르고 클로드 대화창에 붙여 넣습니다. 한 번에 다 들어갑니다.</li>
         <li>다른 단원으로 바꾸려면 프롬프트 안 <code>5. 과제 데이터</code>의 문항만 갈아 끼웁니다. 나머지 설계는 그대로 두세요.</li>
-        <li>분위기를 바꾸려면 <code>8. 디자인</code>의 색상 코드와 <code>9. 삽화</code> 목록만 고칩니다. 바다 단원이면 등대·배·물고기로 바꾸는 식입니다.</li>
+        <li>분위기를 바꾸려면 <code>8. 디자인</code>의 색상 코드와 <code>9. 삽화</code> 목록만 고칩니다.</li>
         <li>결과가 마음에 안 들면 "○○ 부분만 다시"처럼 한 군데씩 고쳐 달라고 하는 편이 처음부터 다시 만드는 것보다 빠릅니다.</li>
       </ol>
     </div>
@@ -589,35 +681,6 @@ pre.prompt::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
   <p>이 앱은 프롬프트 한 장으로 만들어졌습니다.</p>
   <button class="btn-ghost" id="btnPrompt">이 앱을 만든 프롬프트 보기</button>
 </footer>
-<div class="flash" id="flash"></div>
-
-<!-- 단계 축하 -->
-<div class="cel" id="cel">
-  <div class="cel-card">
-    <div class="cel-badge" id="celBadge"></div>
-    <p class="cel-eyebrow" id="celEyebrow"></p>
-    <h3 class="cel-title" id="celTitle"></h3>
-    <p class="cel-msg" id="celMsg"></p>
-    <span class="cel-pts" id="celPts"></span>
-    <p class="cel-sub" id="celSub"></p>
-    <button class="btn" id="celBtn" style="margin-top:20px">계속하기</button>
-  </div>
-</div>
-
-<!-- 최종 연출 -->
-<div class="finale" id="finale">
-  <div class="fx" id="fxSky"></div>
-  <div class="fx" id="fxSolar"></div>
-  <div class="fx" id="fxShoot" style="pointer-events:none"></div>
-  <div class="fx" id="fxConfetti" style="pointer-events:none"></div>
-  <p class="fx-caption" id="fxCaption"></p>
-  <div id="fxCert"></div>
-  <div class="fx-actions" id="fxActions">
-    <button class="btn" id="btnPrintCert">상장 인쇄 · PDF로 저장</button>
-    <button class="btn sub" id="btnCloseFinale">닫기</button>
-  </div>
-  <button class="fx-skip" id="fxSkip">건너뛰기 ›</button>
-</div>
 
 <script type="text/plain" id="promptSrc">너는 초등학교 교실에서 바로 쓸 수 있는 웹 학습 앱을 만드는 프론트엔드 개발자이자 디자이너다. 아래 명세를 처음부터 끝까지 읽고, 완성된 앱 하나를 만들어라. 중간에 되묻지 말고 끝까지 완성해서 파일로 내놓아라.
 
@@ -661,13 +724,15 @@ pre.prompt::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
 - 마법사 모자 삽화. 둘레에 점선 원이 천천히 돈다.
 - "○○ 학생(6-1), ..." 환영 문장.
 - 화면에 들어오는 순간 모자가 위에서 떨어지듯 내려와 한 번 튕기고 자리를 잡는다(약 1초). 내려앉을 때 금빛 불티 열 개가 사방으로 흩어진다.
-- 버튼을 누르면 배정까지 약 3.4초 동안 다음 연출이 이어진다.
-  (가) 모자 뒤에 금빛 후광이 켜지고 1.15초 주기로 커졌다 작아진다. 둘레의 점선 원이 빨라진다.
-  (나) 모자가 좌우로 흔들린다.
-  (다) 금빛 불티가 모자에서 사방으로 튄다. 시작할 때 스무 개, 1.5초 뒤 열네 개를 더 뿌린다. 불티마다 방향·거리·크기·속도·시작 시각을 난수로 다르게 준다.
-  (라) 모자가 중얼거리는 말이 0.8초 간격으로 한 줄씩 바뀐다. 글자는 부드럽게 사라졌다 나타난다.
+- 버튼을 누르면 배정까지 약 4.6초 동안 다음 연출이 이어진다. 이 앱에서 가장 공들일 장면이다.
+  (가) 화면 전체에 금빛 마법 가루가 차오른다. 화면 아래에서 위로 떠오르며 좌우로 휘어지고, 0.4초마다 새로 스물여덟 개씩 뿜어져 3.6초 동안 화면이 가득 찬다. 가루마다 크기·속도·휘는 방향·투명도를 난수로 다르게 준다. 이 층은 화면 전체를 덮는 고정 레이어다.
+  (나) 동시에 모자가 그 가루 속으로 흐려진다. 투명도 14%, 흐림 9px까지 0.85초에 걸쳐 사라진다.
+  (다) 1.3초 뒤 모자가 빛을 뿜으며 드러난다. 작게 움츠렸다가 튀어 오르고, 뒤에서 커다란 금빛 후광이 한 번 터지며, 불티 스물여덟 개가 사방으로 흩어진다. 드러난 뒤에도 모자에는 금빛 발광 그림자가 계속 붙어 있다.
+  (라) 모자 뒤 후광이 1.15초 주기로 커졌다 작아지고, 둘레의 점선 원이 빨라지며, 모자가 좌우로 흔들린다.
+  (마) 1.6초부터 모자가 중얼거리는 말이 0.8초 간격으로 한 줄씩 바뀐다. 글자는 부드럽게 사라졌다 나타난다.
       "흠… 어디 보자." → "머릿속이 별자리로 가득하구나…" → "용기도 끈기도 함께 보이는군." → "좋아, 정했다!"
-  (마) 마지막에 화면 전체가 금빛으로 번쩍하고(0.95초) 사라진다. 동시에 이번에는 배정된 기숙사 색으로 불티 스물여섯 개가 터진다.
+  (바) 마지막에 화면 전체가 금빛으로 번쩍하고(0.95초) 사라진다. 동시에 배정된 기숙사 색으로 불티 서른 개와 마법 가루 일흔 개가 한꺼번에 터진다.
+- 대시보드로 넘어갈 때 남아 있는 가루를 모두 지운다.
 - 결과: 기숙사 문장 그림이 작게 시작해 통통 튀며 커지고, 그 뒤로 기숙사 색 빛살이 천천히 돈다. 이어서 영문 이름, 한글 설명이 차례로 아래에서 올라온다. 영문 이름에는 기숙사 색 후광을 준다.
 - 빛살은 repeating-conic-gradient로 만들고 가운데가 비치도록 radial-gradient 마스크를 씌운다.
 - 결과: 기숙사 문장 그림 + 영문 이름 + "그리핀도르 — 용기의 기숙사" 형식의 한글 설명.
@@ -781,24 +846,28 @@ LEVEL 4 · 40점 · 아이콘: 삼각대 망원경
 ═══════════════════════════════
 8. 디자인
 ═══════════════════════════════
-전체 분위기: 촛불 켜진 성 안. 짙은 갈색 바탕에 금빛 글씨.
+전체 분위기: 천문탑 옥상에서 올려다본 밤하늘. 깊은 남색 바탕에 글자가 별처럼 빛난다.
+※ 바탕이 어둡다고 글자까지 어둡게 쓰면 안 된다. 바탕은 깊게, 글자는 밝게가 이 앱의 원칙이다. 본문 글자와 바탕의 명도 대비를 10:1 이상으로 잡는다.
 
 색상(CSS 변수로 선언):
-  --bg:#1E1511      바탕
-  --panel:#33241C   카드 바탕
-  --panel-2:#3D2B21 카드 윗부분(그러데이션용)
-  --line:#5A4132    테두리
-  --gold:#D6A53A    금빛 강조
-  --gold-dim:#A57D26 어두운 금빛
-  --cream:#F0E2C9   본문 글자
-  --muted:#B2977A   보조 글자
-  --night:#120E0C   문제 상자(밤하늘) 바탕
-  기숙사 색: 빨강 #C0392B, 초록 #2F8757, 파랑 #5170C4, 노랑 #E0A80D
+  --bg:#080C1C            바탕
+  --panel:rgba(20,28,58,.78)   카드 바탕(반투명이라 별하늘이 은은히 비친다)
+  --panel-2:rgba(32,43,82,.78) 카드 윗부분(그러데이션용)
+  --line:#36446F          테두리
+  --gold:#F2CB6B          빛나는 금색
+  --gold-dim:#D9AE4C      가라앉은 금색
+  --ink:#F4EEDD           본문 글자(밝게)
+  --muted:#A9B6DC         보조 글자(푸른 기가 도는 회백색)
+  --night:#060A18         문제 상자 바탕
+  기숙사 색은 어두운 바탕에서도 또렷하도록 밝게 잡는다: 빨강 #E0574A, 초록 #3FBE83, 파랑 #7E9BFF, 노랑 #F2C247
 
 글꼴: 제목과 영문 라벨은 Cinzel, 한글 본문은 Gowun Batang. 두 가지만 쓴다.
 
 세부:
-- 바탕에 아주 옅은 점 무늬를 깔고, 화면 위쪽에 금빛 후광을 은은하게 준다.
+- 화면 전체에 별하늘을 깐다. 크기와 깜빡이는 주기가 제각각인 별 120개를 화면에 흩뿌리고, 그중 열 개쯤은 조금 크고 노란빛이 돌게 해서 빛무리를 준다. 이 층은 화면에 고정되어 스크롤해도 따라온다.
+- 바탕에는 성운처럼 번지는 큰 원형 그러데이션을 두세 겹 깐다. 오른쪽 위는 보랏빛, 왼쪽은 푸른빛, 아래쪽은 금빛으로 아주 옅게.
+- 8초에서 17초 사이 간격으로 별똥별 하나가 화면을 비스듬히 가로지른다.
+- 제목과 기숙사 이름, 관문 제목에는 빛 번짐(text-shadow)을 준다. 글자가 스스로 빛나는 것처럼 보여야 한다.
 - 주요 버튼은 금빛 그러데이션에 아래쪽 그림자를 두어 입체로 보이게 하고, 누르면 3~4px 내려앉게 한다.
 - 문제 상자는 거의 검은 밤하늘 색에 크기가 다른 점 무늬 두 겹을 깔아 별처럼 보이게 한다.
 - 화면 맨 위에 촛불 다섯 개를 나란히 두고 불꽃이 천천히 흔들리게 한다(2.6초 주기, 서로 시작 시각을 다르게).
@@ -862,7 +931,7 @@ LEVEL 4 · 40점 · 아이콘: 삼각대 망원경
 ═══════════════════════════════
 14. 마지막 관문을 통과하면 긴 축하 장면을 연출한다
 ═══════════════════════════════
-네 단계를 모두 통과하면 축하 카드 대신 전체 화면 연출이 약 14초 동안 이어진다. 배운 내용을 눈으로 다시 보여 주는 것이 목적이다. 오른쪽 위에 '건너뛰기' 버튼을 두어 언제든 상장으로 건너뛸 수 있게 한다.
+네 단계를 모두 통과하면 축하 카드 대신 전체 화면 연출이 약 17초 동안 이어진다. 배운 내용을 눈으로 다시 보여 주는 것이 목적이다. 오른쪽 위에 '건너뛰기' 버튼을 두어 언제든 상장으로 건너뛸 수 있게 한다.
 
 [0.2초] 검은 밤하늘이 서서히 밝아진다. 크기와 깜빡이는 시각이 제각각인 별 140개를 뿌린다.
 [0.9초] 자막: "천문탑의 마지막 관문을 지났습니다."
@@ -880,9 +949,14 @@ LEVEL 4 · 40점 · 아이콘: 삼각대 망원경
 [8.0초] 자막: "태양 둘레를 한 해에 한 바퀴 돕니다."
 [9.7초] 자막: "달은 지구 곁을 돌며 날마다 모습을 바꿉니다."
 [11.3초] 별똥별 네 개가 비스듬히 지나간다. 자막: "당신은 그 모든 움직임을 읽어냈습니다."
-[12.8초] 화면이 금빛으로 번쩍하고, 기숙사 색을 섞은 색종이 여든 개가 쏟아진다.
-[13.4초] 상장이 통통 튀며 나타난다. 태양계와 별하늘은 흐려져 뒤 배경으로 남고 계속 돈다.
-[14.4초] 아래쪽에 '상장 인쇄 · PDF로 저장', '닫기' 버튼이 뜬다.
+[12.0초~] 폭죽이 오르기 시작한다. 폭죽은 두 단계로 그린다. 먼저 작은 발사체가 화면 아래에서 0.72초 동안 솟아오르고, 그다음 그 자리에서 흰 섬광이 한 번 번쩍이며 불꽃 입자 서른 개가 원형으로 퍼진다. 입자는 퍼지면서 아래로 처져 중력을 받는 것처럼 보여야 한다. 색은 일곱 가지 중에서 매번 무작위로 고른다.
+[12.0초] 한 발, [12.5초] 한 발, [13.0초] 네 발이 0.19초 간격으로.
+[13.9초] 자막: "축하합니다!"
+[14.0초] 일곱 발이 연달아 터진다.
+[14.6초] 화면이 금빛으로 번쩍하고, 배정된 기숙사 색으로 마흔네 조각짜리 큰 폭죽이 한가운데서 터지며, 색종이 백열 개가 쏟아진다.
+[15.3초] 바람이 분다. 오른쪽에서 왼쪽으로 바람줄기 열한 개와 기숙사 색 종잇조각 서른 개가 화면을 휩쓸고 지나간다.
+[15.8초] 그 바람에 실려 상장이 오른쪽 아래에서 회전하며 날아 들어온다. 흐릿하게 들어와 초점이 맞고, 제자리를 살짝 지나쳤다가 되돌아와 내려앉는다(1.35초). 태양계와 별하늘은 흐려져 뒤 배경으로 남고 계속 돈다.
+[17.2초] 아래쪽에 '상장 인쇄 · PDF로 저장', '닫기' 버튼이 뜬다.
 
 ═══════════════════════════════
 15. 수료 인증상장
@@ -896,6 +970,38 @@ LEVEL 4 · 40점 · 아이콘: 삼각대 망원경
 - 과제 목록의 완주 축하 띠에 '수료 상장 다시 보기' 버튼을 넣어 언제든 이 연출을 다시 볼 수 있게 한다.
 - 움직임 줄이기 설정을 켠 사용자에게는 14초 연출을 건너뛰고 상장을 바로 보여 준다.
 </script>
+
+<div class="flash" id="flash"></div>
+<div class="dust" id="dust"></div>
+
+<!-- 단계 축하 -->
+<div class="cel" id="cel">
+  <div class="cel-card">
+    <div class="cel-badge" id="celBadge"></div>
+    <p class="cel-eyebrow" id="celEyebrow"></p>
+    <h3 class="cel-title" id="celTitle"></h3>
+    <p class="cel-msg" id="celMsg"></p>
+    <span class="cel-pts" id="celPts"></span>
+    <p class="cel-sub" id="celSub"></p>
+    <button class="btn" id="celBtn" style="margin-top:20px">계속하기</button>
+  </div>
+</div>
+
+<!-- 최종 연출 -->
+<div class="finale" id="finale">
+  <div class="fx" id="fxSky"></div>
+  <div class="fx" id="fxSolar"></div>
+  <div class="fx" id="fxShoot" style="pointer-events:none"></div>
+  <div class="fx" id="fxFire" style="pointer-events:none;z-index:3"></div>
+  <div class="fx" id="fxConfetti" style="pointer-events:none"></div>
+  <p class="fx-caption" id="fxCaption"></p>
+  <div id="fxCert"></div>
+  <div class="fx-actions" id="fxActions">
+    <button class="btn" id="btnPrintCert">상장 인쇄 · PDF로 저장</button>
+    <button class="btn sub" id="btnCloseFinale">닫기</button>
+  </div>
+  <button class="fx-skip" id="fxSkip">건너뛰기 ›</button>
+</div>
 
 <script>
 "use strict";
@@ -922,13 +1028,13 @@ function saveDB(db){ Store.set(DB_KEY, JSON.stringify(db)); }
 /* ============================================================
    직접 그린 삽화 (원본 SVG)
    ============================================================ */
-const G = "#D6A53A", GD = "#A57D26", CR = "#F0E2C9";
+const G = "#F2CB6B", GD = "#D9AE4C", CR = "#FFF6DE";
 
 function candleSVG(){
   return '<svg viewBox="0 0 20 50" aria-hidden="true">' +
     '<g class="flame"><ellipse cx="10" cy="11" rx="4" ry="8" fill="#E8A13C" opacity=".85"/>' +
     '<ellipse cx="10" cy="13" rx="2" ry="4.6" fill="#FBE7A8"/></g>' +
-    '<rect x="6.5" y="20" width="7" height="26" rx="2" fill="#E8DCC0"/>' +
+    '<rect x="6.5" y="20" width="7" height="26" rx="2" fill="#F2E4C2" stroke="'+GD+'" stroke-width="1"/>' +
     '<rect x="6.5" y="20" width="2.4" height="26" fill="#FFF6E2" opacity=".55"/>' +
     '<path d="M4.5 46h11l-1.6 3.5H6.1z" fill="'+GD+'"/></svg>';
 }
@@ -1024,6 +1130,7 @@ function crestSVG(key, size){
 
 /* 과제 아이콘 */
 function icoSVG(kind){
+  const G = "#F2CB6B", CR = "#CBD4F0";   /* 밤하늘 위에서 빛나는 금색 */
   const s = 'stroke="'+G+'" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"';
   const open = '<svg viewBox="0 0 64 64" aria-hidden="true">';
   if (kind === "orrery") // 태양계
@@ -1182,9 +1289,44 @@ const LEVELS = [
 let me = null, curLevel = null, answers = {};
 
 /* ---------- 초기 삽화 배치 ---------- */
+
+/* ---------- 배경 별하늘 ---------- */
+(function buildSkyBg(){
+  const sky = document.getElementById("sky");
+  if (!sky) return;
+  let html = "";
+  for (let i = 0; i < 120; i++){
+    const big = Math.random() < 0.12;
+    const sz = (big ? 2 + Math.random() * 1.6 : .8 + Math.random() * 1.5).toFixed(1);
+    const o1 = (.10 + Math.random() * .25).toFixed(2);
+    const o2 = (.55 + Math.random() * .45).toFixed(2);
+    html += '<i class="' + (big ? "big" : "") + '" style="width:' + sz + 'px;height:' + sz + 'px;' +
+      'left:' + (Math.random() * 100).toFixed(2) + '%;top:' + (Math.random() * 100).toFixed(2) + '%;' +
+      '--t:' + (2.6 + Math.random() * 4).toFixed(1) + 's;--o1:' + o1 + ';--o2:' + o2 + ';' +
+      'animation-delay:' + (-Math.random() * 6).toFixed(1) + 's"></i>';
+  }
+  sky.innerHTML = html;
+
+  /* 가끔 별똥별이 하나 지나간다 */
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  function fall(){
+    const sh = document.createElement("span");
+    sh.className = "skyfall";
+    sh.style.width = (100 + Math.random() * 130).toFixed(0) + "px";
+    sh.style.left = (-8 + Math.random() * 30).toFixed(0) + "%";
+    sh.style.top = (2 + Math.random() * 40).toFixed(0) + "%";
+    sh.style.setProperty("--d", (1000 + Math.random() * 700).toFixed(0) + "ms");
+    sky.appendChild(sh);
+    setTimeout(() => sh.remove(), 2400);
+    setTimeout(fall, 8000 + Math.random() * 9000);
+  }
+  setTimeout(fall, 4000 + Math.random() * 5000);
+})();
+
 document.getElementById("candles").innerHTML = candleSVG().repeat(5);
 document.getElementById("heroArt").innerHTML = castleSVG();
-document.getElementById("hatArt").innerHTML = '<div class="aura"></div><div class="ring"></div>' + hatSVG();
+document.getElementById("hatArt").innerHTML =
+  '<div class="aura"></div><div class="halo"></div><div class="ring"></div>' + hatSVG();
 document.getElementById("profIco").innerHTML = icoSVG("quill");
 
 /* ---------- 화면 전환 ---------- */
@@ -1271,11 +1413,50 @@ function doFlash(){
 }
 function hatEnter(){
   const stage = document.getElementById("hatArt");
-  stage.classList.remove("sorting");
+  stage.classList.remove("sorting", "veiled", "shown");
+  dustClear();
+  dustEmit(22, null, false);
   if (REDUCED) return;
   stage.classList.remove("entering"); void stage.offsetWidth; stage.classList.add("entering");
   setTimeout(() => spawnSparks(10), 380);
   setTimeout(() => stage.classList.remove("entering"), 1200);
+}
+
+/* ---------- 마법 가루 ---------- */
+let dustTimer = null;
+function dustEmit(n, color, strong){
+  if (REDUCED) return;
+  const host = document.getElementById("dust");
+  for (let i = 0; i < n; i++){
+    const dp = document.createElement("span");
+    dp.className = "dp";
+    const sz = (3 + Math.random() * 7).toFixed(1) + "px";
+    dp.style.width = sz; dp.style.height = sz;
+    dp.style.left = (Math.random() * 100).toFixed(2) + "%";
+    dp.style.top = (100 + Math.random() * 14).toFixed(1) + "%";
+    dp.style.setProperty("--sx", ((Math.random() * 2 - 1) * 24).toFixed(1) + "vw");
+    dp.style.setProperty("--d", (4200 + Math.random() * 3400).toFixed(0) + "ms");
+    dp.style.setProperty("--o", strong ? ".95" : ".6");
+    dp.style.animationDelay = (Math.random() * 800).toFixed(0) + "ms";
+    if (color) dp.style.background = "radial-gradient(circle,#FFF6DC," + color + ")";
+    host.appendChild(dp);
+    setTimeout(() => dp.remove(), 9200);
+  }
+}
+function dustStorm(ms, color){
+  if (REDUCED) return;
+  dustEmit(50, color, true);
+  clearInterval(dustTimer);
+  const end = Date.now() + ms;
+  dustTimer = setInterval(() => {
+    if (Date.now() > end){ clearInterval(dustTimer); dustTimer = null; return; }
+    dustEmit(28, color, true);
+  }, 400);
+}
+function dustClear(){
+  clearInterval(dustTimer); dustTimer = null;
+  const h = document.getElementById("dust");
+  if (h) h.innerHTML = "";
 }
 
 function doSort(){
@@ -1283,12 +1464,26 @@ function doSort(){
   b.disabled = true; b.textContent = "SORTING…";
   document.getElementById("sortWelcome").style.opacity = ".35";
 
-  const wait = REDUCED ? 300 : 3400;
+  const wait = REDUCED ? 300 : 4600;
   if (!REDUCED){
+    /* 1. 마법 가루가 화면을 가득 채우고, 모자는 그 속으로 흐려진다 */
+    dustStorm(3600);
+    stage.classList.add("veiled");
     stage.classList.add("sorting");
-    spawnSparks(20);
-    MURMURS.forEach((m, i) => setTimeout(() => murmur(m), i * 800));
-    setTimeout(() => spawnSparks(14), 1500);
+
+    /* 2. 1.3초 뒤 모자가 빛을 뿜으며 드러난다 */
+    setTimeout(() => {
+      stage.classList.remove("veiled");
+      stage.classList.add("shown");
+      const halo = stage.querySelector(".halo");
+      halo.classList.remove("burst"); void halo.offsetWidth; halo.classList.add("burst");
+      spawnSparks(28);
+    }, 1300);
+    setTimeout(() => stage.classList.remove("shown"), 2500);
+
+    /* 3. 모자가 중얼거린다 */
+    MURMURS.forEach((m, i) => setTimeout(() => murmur(m), 1600 + i * 800));
+    setTimeout(() => spawnSparks(18), 2900);
   }
 
   setTimeout(() => {
@@ -1299,7 +1494,8 @@ function doSort(){
     saveDB(db);
 
     doFlash();
-    spawnSparks(26, HOUSES[h].color);
+    spawnSparks(30, HOUSES[h].color);
+    dustEmit(70, HOUSES[h].color, true);
     stage.classList.remove("sorting");
     document.getElementById("murmur").classList.remove("on");
     document.getElementById("sortWelcome").style.opacity = "";
@@ -1318,7 +1514,7 @@ function doSort(){
 
     document.getElementById("sortResult").classList.remove("hidden");
     b.disabled = false; b.textContent = "천문탑으로 올라가기";
-    b.onclick = () => { renderDash(); show("scDash"); };
+    b.onclick = () => { dustClear(); renderDash(); show("scDash"); };
   }, wait);
 }
 
@@ -1366,8 +1562,8 @@ function renderDash(){
       '<button class="btn-ghost" id="btnPrompt2">만든 프롬프트 보기</button></span></div>'
     : "";
   if (allDone){
-    document.getElementById("btnPrompt2").addEventListener("click", openPrompt);
     document.getElementById("btnCert").addEventListener("click", runFinale);
+    document.getElementById("btnPrompt2").addEventListener("click", openPrompt);
   }
 
   document.getElementById("questGrid").innerHTML = LEVELS.map(lv => {
@@ -1586,6 +1782,7 @@ document.getElementById("btnReset").addEventListener("click", () => {
   Store.del(DB_KEY); clearMe();
   renderProf();
 });
+
 
 
 /* ---------- 제작 프롬프트 ---------- */
@@ -1819,6 +2016,73 @@ function certHTML(){
     "</div></div>";
 }
 
+/* ---------- 불꽃놀이 ---------- */
+const FW_COLORS = ["#FFD35C","#FF7A59","#7FD4FF","#C79BFF","#8CF2A8","#FF9ED2","#FFF3C8"];
+function firework(xPct, yPct, color, count){
+  if (REDUCED) return;
+  const host = document.getElementById("fxFire");
+  const col = color || FW_COLORS[Math.floor(Math.random() * FW_COLORS.length)];
+  const sh = document.createElement("span");
+  sh.className = "shell"; sh.style.color = col;
+  sh.style.left = xPct + "%"; sh.style.top = "94%";
+  sh.style.setProperty("--rise", -(94 - yPct) + "vh");
+  sh.style.setProperty("--d", "720ms");
+  host.appendChild(sh);
+  setTimeout(() => {
+    sh.remove();
+    const fl = document.createElement("span");
+    fl.className = "fw-flash";
+    fl.style.left = xPct + "%"; fl.style.top = yPct + "%";
+    host.appendChild(fl); setTimeout(() => fl.remove(), 650);
+    const n = count || 30;
+    for (let i = 0; i < n; i++){
+      const a = Math.PI * 2 * i / n + Math.random() * 0.22;
+      const r = 90 + Math.random() * 140;
+      const fp = document.createElement("span");
+      fp.className = "fp"; fp.style.color = col;
+      const sz = (3 + Math.random() * 4).toFixed(1) + "px";
+      fp.style.width = sz; fp.style.height = sz;
+      fp.style.left = xPct + "%"; fp.style.top = yPct + "%";
+      fp.style.setProperty("--tx", (Math.cos(a) * r).toFixed(0) + "px");
+      fp.style.setProperty("--ty", (Math.sin(a) * r).toFixed(0) + "px");
+      fp.style.setProperty("--d", (1100 + Math.random() * 800).toFixed(0) + "ms");
+      host.appendChild(fp);
+      setTimeout(() => fp.remove(), 2300);
+    }
+  }, 720);
+}
+function volley(n, color){
+  for (let i = 0; i < n; i++)
+    setTimeout(() => firework(11 + Math.random() * 78, 15 + Math.random() * 32, color), i * 190);
+}
+/* 인증서를 실어 오는 바람 */
+function windGust(){
+  if (REDUCED) return;
+  const host = document.getElementById("fxFire");
+  for (let i = 0; i < 11; i++){
+    const w = document.createElement("span");
+    w.className = "wind";
+    w.style.width = (120 + Math.random() * 230).toFixed(0) + "px";
+    w.style.left = "100%";
+    w.style.top = (8 + Math.random() * 78).toFixed(0) + "%";
+    w.style.setProperty("--d", (900 + Math.random() * 520).toFixed(0) + "ms");
+    w.style.animationDelay = (i * 68) + "ms";
+    host.appendChild(w); setTimeout(() => w.remove(), 2300);
+  }
+  const cols = [HOUSES[me.house].color, "#D6A53A", "#F3E7CE"];
+  for (let i = 0; i < 30; i++){
+    const f = document.createElement("span");
+    f.className = "wfleck";
+    f.style.left = "101%";
+    f.style.top = (4 + Math.random() * 86).toFixed(0) + "%";
+    f.style.background = cols[i % 3];
+    f.style.setProperty("--dy", ((Math.random() * 2 - 1) * 20).toFixed(0) + "vh");
+    f.style.setProperty("--d", (1000 + Math.random() * 720).toFixed(0) + "ms");
+    f.style.animationDelay = (Math.random() * 520).toFixed(0) + "ms";
+    host.appendChild(f); setTimeout(() => f.remove(), 2700);
+  }
+}
+
 /* ---------- 최종 연출 ---------- */
 let fxTimers = [];
 function fxAt(ms, fn){ fxTimers.push(setTimeout(fn, ms)); }
@@ -1867,6 +2131,8 @@ function runFinale(){
   const cert = document.getElementById("fxCert");
 
   buildSky(); buildSolar();
+  document.getElementById("fxFire").innerHTML = "";
+  document.getElementById("fxConfetti").innerHTML = "";
   cert.innerHTML = ""; cert.classList.remove("show");
   document.getElementById("fxActions").classList.remove("show");
   document.getElementById("fxCaption").innerHTML = "";
@@ -1889,13 +2155,21 @@ function runFinale(){
   fxAt(8000,  () => fxCap("태양 둘레를 한 해에 한 바퀴 돕니다."));
   fxAt(9700,  () => fxCap("달은 지구 곁을 돌며<br>날마다 모습을 바꿉니다."));
   fxAt(11300, () => { fxShootingStars(4); fxCap("당신은 그 모든 움직임을 읽어냈습니다."); });
-  fxAt(12800, () => {
+  /* 폭죽이 하나씩 오르다가 마지막에 한꺼번에 터진다 */
+  fxAt(12000, () => firework(24, 24));
+  fxAt(12500, () => firework(72, 20));
+  fxAt(13000, () => volley(4));
+  fxAt(13900, () => fxCap("축하합니다!"));
+  fxAt(14000, () => volley(7));
+  fxAt(14600, () => {
     fxFlash();
+    firework(50, 22, HOUSES[me.house].color, 44);
     rainConfetti(document.getElementById("fxConfetti"),
-      [HOUSES[me.house].color, "#D6A53A", "#F0E2C9", "#8FC7CE"], 80, 2600);
+      [HOUSES[me.house].color, "#D6A53A", "#F0E2C9", "#8FC7CE", "#FF9ED2"], 110, 3000);
   });
-  fxAt(13400, fxShowCert);
-  fxAt(14400, () => document.getElementById("fxActions").classList.add("show"));
+  fxAt(15300, windGust);
+  fxAt(15800, fxShowCert);
+  fxAt(17200, () => document.getElementById("fxActions").classList.add("show"));
 }
 function closeFinale(){
   fxClear();
@@ -1904,6 +2178,7 @@ function closeFinale(){
     document.getElementById("fxSky").innerHTML = "";
     document.getElementById("fxSolar").innerHTML = "";
     document.getElementById("fxConfetti").innerHTML = "";
+    document.getElementById("fxFire").innerHTML = "";
   }, 800);
   renderDash(); show("scDash");
 }
